@@ -1,0 +1,9 @@
+{
+	"author": "Darko Bozhinovski <dbozhinovski@gmail.com>",
+	"name": "nrandr",
+	"version": "0.0.1",
+	"dependencies": {
+		"xrandr-parse": "*"
+	}
+
+}
