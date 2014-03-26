@@ -1,6 +1,1 @@
-{
-	"27135d1cddca12672950a522bdff7992": [
-		"--output LVDS1 --auto",
-		"--output HDMI1 --auto --primary --above LVDS1"
-	]
-}
+{"27135d1cddca12672950a522bdff7992":["--output LVDS1 --auto","--output HDMI1 --auto"]}

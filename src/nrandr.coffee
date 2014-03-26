@@ -3,10 +3,10 @@ parse = require "xrandr-parse"
 crypto = require "crypto"
 fs = require 'fs'
 
-query = []
-id = []
-
 run = ->
+  query = []
+  id = []
+
   exec 'xrandr', (error, stdout) ->
     outputs = parse stdout
     for output, params of outputs
@@ -22,10 +22,14 @@ getGeometry = (id, query) ->
   sum = md5sum.digest('hex')
 
   fs.readFile './geometries.json', (error, file) ->
-    geometries = JSON.parse file.toString()
+    file = file.toString() or "{}"
+    console.log file
+    geometries = JSON.parse(file) or {}
+
     if geometries.hasOwnProperty(sum)
       # run geometry
       exec "xrandr #{geometries[sum].join(" ")}"
+      console.log "xrandr #{geometries[sum].join(" ")}"
     else
       geometries[sum] = query
       console.log "New mode detected, written to geometries"
